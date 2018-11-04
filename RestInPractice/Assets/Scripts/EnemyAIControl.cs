@@ -6,37 +6,43 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class EnemyAIControl : iDestructable 
+public class EnemyAIControl : MonoBehaviour, iDestructable
 {
+    public int health = 5;
+    public int damage;
+    public GameObject enemy;
 
+    // Use this for initialization
+    void Start()
+    {
+        enemy = GetComponent<GameObject>(); 
+    }
 
-	// Use this for initialization
-	void Start ()
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         iDestructable other = collision.gameObject.GetComponent<iDestructable>();
         if (other != null)
+            other.iDie();
+    }
+
+    void iDestructable.iDie()
+    {
+        if (health > 0)
         {
-            other.takeDamage();
-            other.iDie();            
+            health--;
+        }
+        else
+        {
+            Destroy(enemy);
         }
     }
-
-    public void iDie()
-    {
-
-    }
-
 }

@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScytheScript : MonoBehaviour {
+public class ScytheScript : MonoBehaviour
+{
 
+    public int damage;
+    public Rigidbody2D rb;
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject);
+    }
 
     //Called when the Sythe overlaps the Enemy
     void OnCollisionEnter(Collision collision)
@@ -16,6 +21,7 @@ public class ScytheScript : MonoBehaviour {
         if (other != null)
         {
             other.iDie();
+            Destroy(gameObject);
         }
     }
 }
