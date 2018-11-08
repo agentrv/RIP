@@ -3,7 +3,7 @@
  Edited: 10/25/18
  Tested: Unity 2018.2.6f
  */
-
+/*
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -24,7 +24,7 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
     // Update is called once per frame
     void Update()
     {
-		PlayerControl.instance.transform.position
+		PlayerControl.instance.transform.position;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -46,3 +46,4 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
         }
     }
 }
+*/

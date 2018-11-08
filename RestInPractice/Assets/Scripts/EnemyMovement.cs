@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class EnemyMovement : MonoBehaviour {
 	
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
 	 private void FixedUpdate()
     {
         
-        Vector2 pos = 
+      
 
         if (Input.touchCount == 1)
         {       
@@ -51,3 +51,4 @@ public class EnemyMovement : MonoBehaviour {
     }
 	
 }
+*/
