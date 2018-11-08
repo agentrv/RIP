@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour, iDestructable
 {
     public float speed = 2.0f;
     public GameObject player;
@@ -64,4 +64,8 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
+	void iDestructable.iDie()
+	{
+		Destroy(gameObject);
+	}	
 }
