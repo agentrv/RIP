@@ -55,7 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyAIControl.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
-     <Compile Include="Assets\Scripts\gameManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HealthDamageScript.cs" />
      <Compile Include="Assets\Scripts\iDestructable.cs" />
      <Compile Include="Assets\Scripts\pCharScript.cs" />

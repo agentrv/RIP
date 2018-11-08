@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
-
+	
 	// Use this for initialization
 	void Start () {
 		
 	}
-	/* 
+	
 	 private void FixedUpdate()
     {
-        Touch touch = Input.GetTouch(0);
-        Vector2 pos = touch.position;
+        
+        Vector2 pos = 
 
         if (Input.touchCount == 1)
         {       
@@ -48,5 +48,5 @@ public class EnemyMovement : MonoBehaviour {
         }
 
     }
-	*/
+	
 }
