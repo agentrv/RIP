@@ -24,7 +24,7 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
     // Update is called once per frame
     void Update()
     {
-
+		PlayerControl.instance.transform.position
     }
 
     void OnCollisionEnter(Collision collision)

@@ -15,6 +15,13 @@ public class PlayerControl : MonoBehaviour, iDestructable
     public GameObject player;
     //This is for the placement of an enemy
     public GameObject[] target;
+	
+	
+	static public PlayerControl instance = null;
+	void Awake()
+	{
+		instance = this;
+	}
 
     void Start()
     {

@@ -6,7 +6,6 @@ using UnityEngine;
 public class pCharScript: MonoBehaviour 
 {
 	#region PrivateRegion
-
 	
 	#endregion PrivateRegion
 	
