@@ -12,11 +12,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour, iDestructable
 {
     public float speed = 2.0f;
-    public GameObject player;
-    //This is for the placement of an enemy
-    public GameObject[] target;
 	
-	
+    //This is for the placement of an enemy	
 	static public PlayerControl instance = null;
 	void Awake()
 	{
@@ -25,7 +22,7 @@ public class PlayerControl : MonoBehaviour, iDestructable
 
     void Start()
     {
-        target = GameObject.FindGameObjectsWithTag("Enemy");
+       
     }
 
     private void Update()
@@ -34,11 +31,10 @@ public class PlayerControl : MonoBehaviour, iDestructable
     }
     private void FixedUpdate()
     {
-        Touch touch = Input.GetTouch(0);
-        Vector2 pos = touch.position;
-
         if (Input.touchCount == 1)
         {       
+			Touch touch = Input.GetTouch(0);
+			Vector2 pos = touch.position;
             float ratio = ((float)Screen.width) / Screen.height;
             
             if (pos.x < (pos.y * ratio))
@@ -71,8 +67,13 @@ public class PlayerControl : MonoBehaviour, iDestructable
         }
 
     }
+	
+	
+	
 	void iDestructable.iDie()
 	{
+		Debug.Log("Ow");
+		instance = null;
 		Destroy(gameObject);
 	}	
 }
