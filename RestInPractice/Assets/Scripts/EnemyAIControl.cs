@@ -3,9 +3,8 @@
  Edited: 10/25/18
  Tested: Unity 2018.2.6f
  */
-/*
+
 using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 
@@ -13,25 +12,47 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
 {
     public int health = 5;
     public int damage;
-    public GameObject enemy;
+	public float sightDistance = 10;
+	public float speed = 5;
+	
+	private Vector3 pos;
+	private Vector3 dir;
+	
 
     // Use this for initialization
     void Start()
     {
-        enemy = GetComponent<GameObject>(); 
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-		PlayerControl.instance.transform.position;
+		if (PlayerControl.instance == null)
+			return;
+
+		pos = PlayerControl.instance.transform.position;
+		dir = pos - transform.position;
+		float len = dir.magnitude;
+		dir.Normalize();
+		
+		if (len <= sightDistance)
+		{
+			dir *= speed * Time.deltaTime;
+			transform.Translate(dir);
+		}
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+	public void OnCollisionEnter (Collision collision) 
+	{
+		Debug.Log("Colliding!!");
         iDestructable other = collision.gameObject.GetComponent<iDestructable>();
         if (other != null)
             other.iDie();
+		else
+		{
+		Debug.Log("Im getting bumped");
+		}
     }
 
     void iDestructable.iDie()
@@ -42,8 +63,7 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
         }
         else
         {
-            Destroy(enemy);
+            Destroy(gameObject);
         }
     }
 }
-*/
