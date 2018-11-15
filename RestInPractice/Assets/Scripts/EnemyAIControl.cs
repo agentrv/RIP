@@ -10,10 +10,11 @@ using UnityEngine;
 
 public class EnemyAIControl : MonoBehaviour, iDestructable
 {
-    public int health = 5;
+    public int health=5;
     public int damage;
-	public float sightDistance = 10;
-	public float speed = 5;
+	public float sightDistance=10;
+	public float speed=5;
+	public float attackDelay=2;
 	
 	private Vector3 pos;
 	private Vector3 dir;
@@ -43,15 +44,18 @@ public class EnemyAIControl : MonoBehaviour, iDestructable
 		}
     }
 
-	public void OnCollisionEnter (Collision collision) 
+	void OnCollisionEnter (Collision collision) 
 	{
-		Debug.Log("Colliding!!");
-        iDestructable other = collision.gameObject.GetComponent<iDestructable>();
-        if (other != null)
-            other.iDie();
+		print("Colliding!!");
+        iDestructable other=collision.gameObject.GetComponent<iDestructable>();
+        if (other!=null)
+        {    
+		print("Pow!");
+		other.iDie();
+		}
 		else
 		{
-		Debug.Log("Im getting bumped");
+		Debug.Log("Wimpy...");
 		}
     }
 

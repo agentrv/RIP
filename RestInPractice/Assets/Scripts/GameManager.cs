@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour 
 {
-	public List<GameObject> minions;
-	protected int health;
-    protected int atkDmg;
-	static gameManager instance;
+	#region public feilds
+    public List<GameObject> spawnables;
+    public Transform PlayerPosition;
+    #endregion public feilds
 
-      public static gameManager GetInstance()
+    #region Private Feilds
+    static gameManager instance;
+    #endregion Private Feilds
+
+    public static gameManager GetInstance() // Instance used when initiated in other scripts
     {
         if (instance == null)
         {
             instance = new gameManager();
         }
         return instance;
-    }	
+    }
 	
 	void Start()
 	{
 		instance = this;
-		
 	}
-	
+
 }
+ 

@@ -11,8 +11,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour, iDestructable
 {
-    public float speed = 2.0f;
-	
+    public float speed = 2.0f;	
     //This is for the placement of an enemy	
 	static public PlayerControl instance = null;
 	void Awake()
@@ -22,7 +21,6 @@ public class PlayerControl : MonoBehaviour, iDestructable
 
     void Start()
     {
-       
     }
 
     private void Update()
@@ -68,12 +66,19 @@ public class PlayerControl : MonoBehaviour, iDestructable
 
     }
 	
+	void OnCollisionEnter(Collision _collision)
+	{
+		if(_collision.gameObject.tag == "Enemy")
+		{
+		print("Hey!!!");	
+		}
+	}
+	
 	
 	
 	void iDestructable.iDie()
 	{
 		Debug.Log("Ow");
-		instance = null;
 		Destroy(gameObject);
 	}	
 }
